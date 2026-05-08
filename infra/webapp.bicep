@@ -25,7 +25,7 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'
-          value: 'Development'
+          value: 'Dev'
         }
         {
           name: 'UseOnlyInMemoryDatabase'
