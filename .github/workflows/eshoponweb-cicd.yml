@@ -92,7 +92,7 @@ jobs:
         uses: Azure/webapps-deploy@v3
         with:
           type: ZIP
-          app-name: ${{ env.WEBAPP-NAME  }}
+          app-name: ${{ env.WEBAPP-NAME }}
           package: .net-app/app.zip
 
       # Publish website to Azure App Service using CLI (WebApp)
