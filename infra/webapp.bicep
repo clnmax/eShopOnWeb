@@ -1,12 +1,12 @@
 param webAppName string // = uniqueString(resourceGroup().id) // unique String gets created from az cli instructions
 param sku string = 'S1' // The SKU of App Service Plan
-param location string = resourceGroup().location
+param location string = resourceGroup().LOCATION
 
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   name: appServicePlanName
-  location: location
+  location: LOCATION
   properties: {
     reserved: true
   }
@@ -17,7 +17,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
 resource appService 'Microsoft.Web/sites@2022-09-01' = {
   name: webAppName
   kind: 'app'
-  location: location
+  location: LOCATION
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
